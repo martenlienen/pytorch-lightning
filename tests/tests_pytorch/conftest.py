@@ -113,7 +113,7 @@ def restore_signal_handlers():
     This is a safety net for tests that don't run Trainer's teardown.
 
     """
-    valid_signals = _SignalConnector._valid_signals()
+    valid_signals = signal.valid_signals()
     if not _IS_WINDOWS:
         # SIGKILL and SIGSTOP are not allowed to be modified by the user
         valid_signals -= {signal.SIGKILL, signal.SIGSTOP}
